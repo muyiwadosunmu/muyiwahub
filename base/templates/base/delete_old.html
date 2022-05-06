@@ -1,0 +1,13 @@
+<!-- #This would ba a dynamic delete page/function
+#as we'll be using it to delete comments,,rooms etc -->
+
+{% extends 'main.html' %}
+
+{% block content %}
+<form class="" action="" method="POST">
+  {% csrf_token %}
+  <p>Are you sure you want to delete '{{obj}}'?</p>
+  <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+  <input type="submit" name="" value="Confirm">
+</form>
+{% endblock content %}
