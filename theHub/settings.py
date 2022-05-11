@@ -1,5 +1,5 @@
 
-
+import os
 from pathlib import Path
 import django_heroku
 import dj_database_url
@@ -30,9 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
-    'cloudinary_storage',
+    "corsheaders",
     'rest_framework',
-    'corsheaders',
     'drf_yasg',
 ]
 
@@ -121,9 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/images/'
-DEFAULT_FILE_STORAGE ="cloudinary_storage.storage.MediaCloudinaryStorage"
 
 #THis is where our ststicfiles would be housed
 STATICFILES_DIRS =[
@@ -141,4 +139,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
 
 
-CORS_ALLOW_ALL_ORIGINS = True
